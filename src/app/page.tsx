@@ -2,21 +2,30 @@
 import { useState } from 'react';
 import type { MouseEventHandler } from "react";
 import {LazyImage } from '../components/RandomFox';
-import { v4 as uuidv4 } from 'uuid';
+
 
 type ImageItem = {
   id: string;
   url: string;
 };
 
+// generate simple unique id
+const generateId = (): string => {
+  return (
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
+  );
+};
+
+
 const Home: () => JSX.Element = () => {
   const random = () => Math.floor(Math.random() * 122) + 1;
-  const generateUniqueId = (): string => `${uuidv4()}-${random()}`;
+
   const [images, setImages] = useState<Array<ImageItem>>([ ]);
 
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
     const newImageItem: ImageItem ={
-      id: generateUniqueId (),
+      id: generateId(),
       url: `https://randomfox.ca/images/${random()}.jpg`
     };
     setImages([...images, newImageItem]);
