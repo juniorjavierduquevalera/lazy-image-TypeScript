@@ -35,13 +35,13 @@ const Home: () => JSX.Element = () => {
     <main className="flex flex-col items-center">
        <button
         onClick={addNewFox}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mb-4 mt-10"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-md mb-4 fixed top-0 left-0 right-0 mx-auto w-80"
 
       >
         Add new Image
       </button>
       {images.map(({ id, url }, index) => (
-          <div className="p-4" key={id}>
+          <div className="p-4 mt-24" key={id}>
             <LazyImage
               src={url}
               width="320"
