@@ -40,22 +40,24 @@ const Home: () => JSX.Element = () => {
       >
         Add new Image
       </button>
-      {images.map(({ id, url }, index) => (
-          <div className="p-4 mt-24" key={id}>
-            <LazyImage
-              src={url}
-              width="320"
-              height="auto"
-              className="mx-auto rounded-md bg-gray-300"
-              onClick={() => {
-                console.log("click");
-              }}
-              onLazyLoad={(img) => {
-                console.log(`Image #${index + 1} cargada. Nodo:`, img);
-              }}
-            />
-          </div>
-        ))}
+      <div className='mt-16'> 
+          {images.map(({ id, url }, index) => (
+            <div className="p-4" key={id}>
+              <LazyImage
+                src={url}
+                width="320"
+                height="auto"
+                className="mx-auto rounded-md bg-gray-300"
+                onClick={() => {
+                  console.log("click");
+                }}
+                onLazyLoad={(img) => {
+                  console.log(`Image #${index + 1} cargada. Nodo:`, img);
+                }}
+              />
+            </div>
+        ))}</div>
+
     </main>
   );
 };
